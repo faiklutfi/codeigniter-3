@@ -131,7 +131,7 @@
 <body>
 <div class="navbar"> 
         <span class="openbtn" onclick="openNav()">&#9776;</span> 
-        <h3 class="text-center text-white">Data Siswa</h3> 
+        <h3 class="text-center text-white">Data guru</h3> 
         <div class="search-container"> 
             <input type="text" class="search-box" placeholder="Cari..."> 
             <button type="submit">Cari</button> 
@@ -142,7 +142,7 @@
     <div class="sidenav" id="mySidenav"> 
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times; tutup</a> 
         <a href="<?php echo base_url('admin') ?>">Beranda</a> 
-        <a href="<?php echo base_url('admin/siswa') ?>">akun</a> 
+        <a href="<?php echo base_url('admin/guru') ?>">guru</a> 
     </div> 
  
     <!-- Konten --> 
@@ -155,60 +155,50 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No </th>
-                                    <th scope="col">foto siswa</th>
-                                    <th scope="col">Nama siswa </th>
-                                    <th scope="col">NISN </th>
-                                    <th scope="col">gender </th>
-                                    <th scope="col">kelas </th>
+                                    <th scope="col">Nama guru</th>
+                                    <th scope="col">NIK </th>
+                                    <th scope="col"> Gender </th>
+                                    <th scope="col"> mapel </th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody> 
                     <?php $no = 0; 
-                                foreach ($siswa as $row): 
+                                foreach ($guru as $row): 
                                     $no++ ?> 
                     <tr> 
                         <td> 
                             <?php echo $no ?> 
-                        </td>
-                        <td> 
-                            <?php echo $row->nama_siswa ?> 
                         </td> 
                         <td> 
-                            <?php echo $row->nisn ?> 
+                            <?php echo $row->nama_guru ?> 
                         </td> 
                         <td> 
-                            <?php echo $row->gender?> 
+                            <?php echo $row->nik ?> 
                         </td> 
                         <td> 
-                            <?php echo tampil_full_kelas_byid($row->id_kelas) ?>
+                            <?php echo $row->gender ?> 
                         </td> 
-                        <td class=""> 
-                            <a href="<?php echo base_url('admin/ubah_siswa/').$row->id_siswa ?>" class="btn btn-primary btn-sm">Detail</a> 
-                            <button onclick="hapus(<?php echo $row->id_siswa ?>)" 
+                        <td> 
+                            <?php echo $row->id_mapel ?> 
+                        </td> 
+                        <td class="text-center"> 
+                            <a href="<?php echo base_url('admin/ubah_guru/').$row->id_guru ?>" class="btn btn-primary btn-sm">Detail</a> 
+                            <button onclick="hapus(<?php echo $row->id_guru ?>)" 
                                 class="btn btn-danger btn-sm">Hapus</button> 
                         </td> 
  
                     </tr> 
                     <?php endforeach ?> 
                 </tbody>
-                <button class="btn btn-sm btn-warning"><a href="<?php echo base_url('admin/tambah_siswa'); ?>" class="btn text-dark fw-bolder text-white">tambah</a></button>
         </div>
+        <br>
     </div>
     <script>
-    function openNav() { 
-    document.getElementById("mySidenav").style.width = "250px"; 
-    document.getElementsByClassName("content")[0].style.marginLeft = "250px"; 
-    } 
- 
-    function closeNav() { 
-        document.getElementById("mySidenav").style.width = "0"; 
-        document.getElementsByClassName("content")[0].style.marginLeft = "0"; 
-    }
     function hapus(id) {
         var yes = confirm('Yakin Di Hapus?');
         if (yes == true) {
-            window.location.href = "<?php echo base_url('admin/hapus_siswa/')?>" + id;
+            window.location.href = "<?php echo base_url('admin/hapus_guru/')?>" + id;
         }
     }
     </script>

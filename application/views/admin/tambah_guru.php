@@ -18,15 +18,15 @@
         <div class="container mt-12">
             <?php $this->load->view('components/navbar')?>
             <div class="overflow-x-auto">
-                <form action="<?php echo base_url('admin/aksi_tambah_siswa') ?>" enctype="multipart/form-data"
+                <form action="<?php echo base_url('admin/aksi_tambah_guru') ?>" enctype="multipart/form-data"
                     method="post">
                     <div class="max-full rounded border overflow-hidden shadow-lg">
                         <div class="px-6 py-4">
-                            <p class="text-xl font-bold text-center">ubah Siswa</p>
+                            <p class="text-xl font-bold text-center">Tambah guru</p>
                             <div class="grid grid-cols-2 gap-4 mt-5">
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2" for="nama">
-                                        Nama Siswa
+                                        Nama guru
                                     </label>
                                     <input
                                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -52,21 +52,21 @@
                                     </select>
                                 </div>
                                 <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="kelas">
-                                        Kelas
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="mapel">
+                                        mapel
                                     </label>
-                                    <select name="kelas" id="kelas"
+                                    <select name="mapel" id="mapel"
                                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                        <option selected>Pilih Kelas</option>
-                                        <?php foreach($kelas as $row): ?>
+                                        <option selected>Pilih mapel</option>
+                                        <?php foreach($mapel as $row): ?>
                                         <option value="<?php echo $row->id ?>">
-                                            <?php echo $row->tingkat_kelas.' '.$row->jurusan_kelas ?></option>
+                                            <?php echo $row->nama_mapel ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
                                     <button type="submit"
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/6">
-                                    ubah
+                                    Tambah
                                 </button>
                             </div>
                         </div>
